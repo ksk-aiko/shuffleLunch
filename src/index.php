@@ -1,4 +1,10 @@
 <?php
+// データベースに接続
+$mysqli = new mysqli('db', 'test_user', 'pass', 'test_database');
+// 接続エラーの確認
+if ($mysqli->connect_error) {
+    throw new RuntimeException('mysqliの接続に失敗しました。', $mysqli->connect_error);
+}
 // タイトルを設定
 $title = "シャッフルランチサービス";
 ?>
@@ -15,5 +21,8 @@ $title = "シャッフルランチサービス";
     <form action="employee_registration.php" method="get">
         <button type="submit">社員を登録する</button>
     </form>
+    <!-- 登録されている社員の一覧を表示 -->
+     <h1>社員一覧</h1>
+
 </body>
 </html>

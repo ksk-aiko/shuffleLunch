@@ -25,6 +25,8 @@
         </div>
         <div>
             <button type="submit">登録</button>
+            <!-- 戻るボタン -->
+            <button type="button" onclick="location.href='index.php'">戻る</button>
         </div>
     </form>
 </body>
