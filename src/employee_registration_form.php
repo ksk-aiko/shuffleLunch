@@ -1,5 +1,4 @@
 <?php
-
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +9,7 @@
 </head>
 <body>
     <h1>社員登録フォーム</h1>
-    <form action="register_employee.php" method="post">
+    <form action="employee_register.php" method="post">
         <div>
             <label for="name">名前：</label>
             <input type="text" id="name" name="name" required>
