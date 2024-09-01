@@ -15,17 +15,9 @@
             <input type="text" id="name" name="name" required>
         </div>
         <div>
-            <label for="email">メールアドレス：</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div>
-            <label for="department">部署：</label>
-            <input type="text" id="department" name="department">
-        </div>
-        <div>
             <button type="submit">登録</button>
             <!-- 戻るボタン -->
-            <button type="button" onclick="location.href='index.php'">戻る</button>
+            <button type="button" onclick="location.href='../index.php'">戻る</button>
         </div>
     </form>
 </body>
