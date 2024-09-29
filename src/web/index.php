@@ -1,2 +1,6 @@
 <?php
-echo 'Hello World';
+
+require '../Application.php';
+
+$app = new Application();
+$app->run();
