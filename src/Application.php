@@ -5,10 +5,12 @@ require_once __DIR__ . '/core/Router.php';
 class Application
 {
 
+    private $router;
+
     public function __construct()
     {
         // Initialize the router
-        $this->router = new Router();
+        $this->router = new Router($this->registerRoutes());
     }
 
     // Run the application
@@ -16,6 +18,7 @@ class Application
     {
         // Get the path from the request
         $params = $this->router->resolve($this->getPathInfo());
+        var_export($params);
         // Extract the controller and action
         $controller = $params['controller'];
         $action = $params['action'];
