@@ -1,0 +1,21 @@
+@startuml
+!define RECTANGLE class
+
+package "シャッフルランチサービス" {
+    RECTANGLE WebServer {
+        RECTANGLE "index.php" as Index
+        RECTANGLE "employee_register.php" as EmployeeRegister
+        RECTANGLE "register_employee.php" as RegisterEmployee
+    }
+
+    package "データベース" {
+        RECTANGLE "employees" as EmployeesTable
+    }
+}
+
+Index --> EmployeeRegister : "社員を登録する"ボタンを押す
+EmployeeRegister --> RegisterEmployee : フォーム送信
+RegisterEmployee --> EmployeesTable : データ挿入
+Index --> EmployeesTable : データ取得
+
+@enduml

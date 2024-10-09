@@ -1,0 +1,20 @@
+@startuml
+actor User
+participant "index.php" as Index
+participant "employee_register.php" as EmployeeRegister
+participant "register_employee.php" as RegisterEmployee
+database "employees" as EmployeesTable
+
+User -> Index: "社員を登録する"ボタンを押す
+Index -> EmployeeRegister: リダイレクト
+User -> EmployeeRegister: フォーム入力
+User -> EmployeeRegister: フォーム送信
+EmployeeRegister -> RegisterEmployee: POSTデータ送信
+RegisterEmployee -> EmployeesTable: 新しい社員データを挿入
+EmployeesTable --> RegisterEmployee: 挿入結果
+RegisterEmployee -> Index: リダイレクト
+Index -> EmployeesTable: 社員データを取得
+EmployeesTable --> Index: 社員データを返す
+Index -> User: 社員一覧を表示
+
+@enduml

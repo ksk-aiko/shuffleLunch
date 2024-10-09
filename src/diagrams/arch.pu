@@ -1,0 +1,31 @@
+@startuml
+!define RECTANGLE class
+
+package "SHUFFLELUNCH" {
+    RECTANGLE "Web Server" {
+        RECTANGLE "index.php" as Index
+        RECTANGLE "employee_register.php" as EmployeeRegister
+        RECTANGLE "register_employee.php" as RegisterEmployee
+    }
+
+    package "データベース" {
+        RECTANGLE "employees" as EmployeesTable
+    }
+}
+
+package "ユーザーインターフェース" {
+    RECTANGLE "ブラウザ" as Browser
+}
+
+Browser --> Index : HTTPリクエスト
+Index --> EmployeesTable : 社員データを取得
+Index --> Browser : HTMLレスポンス
+
+Browser --> EmployeeRegister : HTTPリクエスト
+EmployeeRegister --> Browser : HTMLレスポンス
+
+Browser --> RegisterEmployee : フォーム送信 (POST)
+RegisterEmployee --> EmployeesTable : 新しい社員データを挿入
+RegisterEmployee --> Browser : リダイレクト
+
+@enduml

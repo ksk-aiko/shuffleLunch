@@ -1,0 +1,19 @@
+@startuml
+!define RECTANGLE class
+
+RECTANGLE Application {
+    - router: Router
+    + __construct()
+    + run()
+    + getPathInfo(): string
+    + registerRoutes(): array
+}
+
+RECTANGLE Router {
+    + __construct(routes: array)
+    + resolve(path: string): array
+}
+
+Application --> Router : uses
+
+@enduml
