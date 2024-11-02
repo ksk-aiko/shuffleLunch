@@ -1,5 +1,4 @@
 <?php
-//TODO:employee.phpでデータベースとのやり取りがうまくできない問題を解決する
 // データベースに接続
 $mysqli = new mysqli('db', 'test_user', 'pass', 'test_database');
 // 接続エラーの確認

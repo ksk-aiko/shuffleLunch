@@ -15,14 +15,11 @@
 </head>
 <body>
     <h1>
-        <a href="index.php">社員の登録</a>
+        <a href="">シャッフルランチ</a>
     </h1>
-    <form action="../employee.php" method="post">
-        <label for="name">社員名</label>
-        <input type="text" name="name" id="name">
-    <button type="submit">登録する</button>
+    <a href="./employee.php">社員を登録する</a>
+    <form action="">
+        <button type="submit">シャッフルする</button>
     </form>
-
-    <h2>社員の一覧</h2>
 </body>
 </html>
