@@ -18,7 +18,7 @@
         <a href="index.php">シャッフルランチ</a>
     </h1>
     <a href="employee.php">社員を登録する</a>
-    <form method="POST" action="">
+    <form method="POST" action="shuffle">
         <button type="submit">シャッフルする</button>
     </form>
 
