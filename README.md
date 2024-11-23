@@ -1,63 +1,72 @@
-# Part 8： フルスクラッチでWebアプリケーション
+# shuffleLunch
 
-## 目的
+## 概要
+shuffleLunchは、ランダムにランチのメンバーをシャッフルしてペアリングするためのアプリケーションです。社員同士の交流を促進し、新しい人との出会いを支援します。
 
-* フルスクラッチでアプリケーションを作成する
-* Webアプリケーションの仕組みの理解を深める
+## 特徴
+- ランダムなペアリング機能
+- メンバーの管理機能
+- ランチのスケジュール管理
 
-## 環境構築
+## このプロジェクトを通して学べること・習得できること
+- Reactの基本的な使い方
+- 状態管理の実践
+- Dockerを使用した開発環境の構築
+- コンテナを使用したアプリケーションのデプロイ
 
-```bash
-# Docker イメージのビルド
-docker-compose build
+## 必要条件
+- Node.js（推奨バージョン: 14.x以上）
+- Docker
 
-# Docker コンテナの起動
-docker-compose up -d
+## インストール手順
+1. リポジトリをクローンします:
+    ```bash
+    git clone https://github.com/ksk-aiko/shuffleLunch.git
+    cd shuffleLunch
+    ```
+2. 依存関係をインストールします:
+    ```bash
+    npm install
+    ```
 
-# Docker コンテナ内でコマンドを実行する
-docker-compose exec app php -v
+## 使用方法
+1. Dockerイメージをビルドします:
+    ```bash
+    docker-compose build
+    ```
+2. Dockerコンテナを起動します:
+    ```bash
+    docker-compose up -d
+    ```
+3. ブラウザで `http://localhost:3000` にアクセスします。
 
-# Docker コンテナの停止・削除
-docker-compose down
-```
+## 機能一覧
+- メンバーのランダムペアリング
+- メンバーの追加・削除
+- ランチスケジュールの管理
 
-## 環境構築 (Remote Development編)
+## 技術スタック
+- React
+- Docker
 
-Docker イメージをビルドする。
+## 追加資料
+現在のところ、追加資料はありません。
 
-```bash
-docker-compose build
-```
+## 貢献方法
+1. このリポジトリをフォークします。
+2. 新しいブランチを作成します:
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
+3. 変更をコミットします:
+    ```bash
+    git commit -m 'Add some feature'
+    ```
+4. ブランチにプッシュします:
+    ```bash
+    git push origin feature/your-feature-name
+    ```
+5. プルリクエストを作成します。
 
-VSCode の Remote-Containers: Open Folder in Container からコンテナを開く。
-
-コマンドは VSCode のターミナルから実行する。
-
-終了するときはコンテナを停止・削除する。
-
-```bash
-docker-compose down
-```
-
-### デバッグ (Xdebug)
-
-デバッグしたい時は下記の順に実施する。
-
-1. コードにブレークポイントを設定する
-2. デバッグビューを開く
-3. 「Listen for Xdebug」を選択してデバッグを開始する
-4. コードを実行する
-
-ブレークポイントで止まらない場合、 `.vscode/launch.json` の port が 9003 であることを確認する。
-
-## 静的解析
-
-VSCode のターミナル上で下記コマンドを実行する（Remote Development で開発している場合）。
-
-```bash
-# PHPStan でコードのバグを検知する
-composer phpstan
-
-# PHP_CodeSniffer でコーディング規約に準拠していないコードを検知する
-composer phpcs
-```
+## ライセンス
+このプロジェクトはMITライセンスの下でライセンスされています。
