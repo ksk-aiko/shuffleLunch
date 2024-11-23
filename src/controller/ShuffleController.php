@@ -1,13 +1,10 @@
 <?php
 //TODO:employeeControllerを実装する
-class ShuffleController
-{
-    public function run($action)
-    {
-        $this->$action();
-    }
+require_once __DIR__ . '/../core/Controller.php';
 
-    private function index()
+class ShuffleController extends Controller
+{
+    public function index()
     {
         // データベースに接続
         $mysqli = new mysqli('db', 'test_user', 'pass', 'test_database');
@@ -52,7 +49,7 @@ class ShuffleController
         include __DIR__ . '/../views/index.php';
     }
 
-    private function create()
+    public function create()
     {
         // データベースに接続
         $mysqli = new mysqli('db', 'test_user', 'pass', 'test_database');

@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/core/Router.php';
 require_once __DIR__ . '/controller/ShuffleController.php';
+require_once __DIR__ . '/controller/EmployeeController.php';
 
 class Application
 
@@ -33,6 +34,7 @@ class Application
         return [
             '/' => ['controller' => 'shuffle', 'action' => 'index'],
             '/shuffle' => ['controller' => 'shuffle', 'action' => 'create'],
+            '/employee' => ['controller' => 'employee', 'action' => 'index'],
         ];
     }
 
