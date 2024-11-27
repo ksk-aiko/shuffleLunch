@@ -1,20 +1,39 @@
 @startuml
 actor User
-participant "index.php" as Index
-participant "employee_register.php" as EmployeeRegister
-participant "register_employee.php" as RegisterEmployee
-database "employees" as EmployeesTable
+participant "web/index.php" as Index
+participant "Application.php" as App
+participant "Controller.php" as Controller
+participant "views/index.php" as IndexView
+participant "employee.php" as Employee
+participant "views/employee.php" as EmployeeView
+database "employees" as DB
 
-User -> Index: "社員を登録する"ボタンを押す
-Index -> EmployeeRegister: リダイレクト
-User -> EmployeeRegister: フォーム入力
-User -> EmployeeRegister: フォーム送信
-EmployeeRegister -> RegisterEmployee: POSTデータ送信
-RegisterEmployee -> EmployeesTable: 新しい社員データを挿入
-EmployeesTable --> RegisterEmployee: 挿入結果
-RegisterEmployee -> Index: リダイレクト
-Index -> EmployeesTable: 社員データを取得
-EmployeesTable --> Index: 社員データを返す
-Index -> User: 社員一覧を表示
+' 初期表示
+User -> Index: アクセス
+Index -> App: run()
+App -> Controller: runAction()
+Controller -> IndexView: 社員一覧表示
+IndexView --> User: 画面表示
+
+' 社員登録
+User -> IndexView: "社員を登録する"クリック
+IndexView -> Employee: リダイレクト
+Employee -> EmployeeView: フォーム表示
+EmployeeView --> User: 登録フォーム表示
+
+User -> EmployeeView: フォーム入力・送信
+EmployeeView -> Employee: POSTデータ送信
+Employee -> DB: INSERT実行
+DB --> Employee: 登録完了
+Employee -> Index: リダイレクト
+
+' シャッフル
+User -> IndexView: "シャッフル"ボタンクリック
+IndexView -> Index: POSTリクエスト
+Index -> DB: 社員データ取得
+DB --> Index: 社員データ返却
+Index -> Index: グループ分け処理
+Index -> IndexView: グループ表示
+IndexView --> User: 結果表示
 
 @enduml

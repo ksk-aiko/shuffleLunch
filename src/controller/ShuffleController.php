@@ -1,5 +1,4 @@
 <?php
-//TODO:employeeControllerを実装する
 require_once __DIR__ . '/../core/Controller.php';
 
 class ShuffleController extends Controller

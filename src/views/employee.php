@@ -7,12 +7,12 @@
 </head>
 <body>
     <h1>
-        <a href="index.php">シャッフルランチ</a>
+        <a href="/">シャッフルランチ</a>
     </h1>
     <h2>
         社員の登録
     </h2>
-    <form action="employee.php" method="post">
+    <form action="/employee/create" method="post">
         <label for="name">社員名</label>
         <input type="text" name="name" id="name" value="<?php echo htmlspecialchars($name ?? '', ENT_QUOTES, 'UTF-8'); ?>">
         <?php if ($error): ?>
