@@ -75,10 +75,7 @@ graph TD;
 - Composer
 
 ## 追加資料
-- [クラス図](src/diagrams/class.pu)
-- [シーケンス図](src/diagrams/sequence.pu)
-- [コンポーネント図](src/diagrams/component.pu)
-- [アーキテクチャ図](src/diagrams/arch.pu)
+- UML図(src/diagrams/diagrams.md)
 
 ## 貢献方法
 1. このリポジトリをフォークします。
