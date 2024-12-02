@@ -75,7 +75,7 @@ graph TD;
 - Composer
 
 ## 追加資料
-- UML図(src/diagrams/diagrams.md)
+- [UML図](src/diagrams/diagrams.md)
 
 ## 貢献方法
 1. このリポジトリをフォークします。
