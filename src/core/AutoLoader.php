@@ -17,7 +17,7 @@ class AutoLoader
     }
 
     // create a function to define the detailed path
-    public function loadClass($className)
+    private function loadClass($className)
     {
         foreach ($this->dirs as $dir) {
             $file = $dir . '/' . $className . '.php';
