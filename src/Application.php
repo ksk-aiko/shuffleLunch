@@ -3,10 +3,12 @@
 class Application
 {
     private $router;
+    private $response;
 
     public function __construct()
     {
         $this->router = new Router($this->registerRoutes());
+        $this->response = new Response();
     }
 
     public function run()
@@ -22,16 +24,22 @@ class Application
         } catch (HttpNotFoundException) {
             $this->render404Page();
         }
+        
+        $this->response->send();
     }
 
     private function runAction($controllerName, $action)
     {
+        // Convert the controller name to the class name
         $controllerClass = ucfirst($controllerName) . 'Controller';
         if (!class_exists($controllerClass)) {
             throw new HttpNotFoundException();
         }
+        // Create an instance of the controller class
         $controller = new $controllerClass();
-        $controller->run($action);
+        // Run the action and get the content
+        $content = $controller->run($action);
+        $this->response->setContent($content);
     }
     
     private function registerRoutes()
@@ -51,6 +59,7 @@ class Application
 
     private function render404Page()
     {
+        //TODO:response instance to set status code, text, and content
         header('HTTP/1.0 404 Not Found');
         $content = <<<EOT
             <!DOCTYPE html>
