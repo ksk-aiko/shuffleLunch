@@ -59,8 +59,9 @@ class Application
 
     private function render404Page()
     {
-        //TODO:response instance to set status code, text, and content
-        header('HTTP/1.0 404 Not Found');
+        $this->response->setStatusCode("404");
+        $this->response->setStatusText("Not Found");
+
         $content = <<<EOT
             <!DOCTYPE html>
             <html>
@@ -74,6 +75,6 @@ class Application
             </html>
         EOT;
         
-        echo $content;
+        $this->response->setContent($content);
     }
 }
